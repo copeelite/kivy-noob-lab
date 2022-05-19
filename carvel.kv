@@ -1,0 +1,137 @@
+WidgetsExample:
+
+<ImagesExample@GridLayout>:
+    cols: 3
+    Image:
+        source: "image/cookie.png"
+    Image:
+        source: "image/cookie.png"
+        allow_stretch: True
+    Image:
+        source: "image/cookie.png"
+        allow_stretch: True
+        keep_ratio: False
+
+<WidgetsExample@GridLayout>:
+    cols: 3
+    ToggleButton:
+        text: "OFF"
+        on_state: root.on_toggle_button_state(self)
+        size_hint: None, 1
+        width: "100dp"
+    Button:
+        text: "Click here"
+        on_press: root.on_button_click()
+        disabled: not root.count_enabled
+    Label:
+        text: root.my_text
+        font_name: "fonts/Lcd.ttf"
+        font_size: "77"
+        color: 10, 10, 8
+    Switch:
+        id: my_switch
+        on_active: root.on_switch_active(self)
+        size_hint: None, 1
+        width: "100dp"
+    Slider:
+        id: my_slider
+        min: 0
+        max: 100
+        value: 50
+        on_value: root.on_slider_value(self)
+        orientation: "vertical"
+        disabled: not my_switch.active
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: str(int(my_slider.value))
+            font_name: "fonts/Lcd.ttf"
+            font_size: "77"
+            color: 1, 1, .5
+        ProgressBar:
+            max: 100
+            value: my_slider.value
+
+    TextInput:
+        id: my_text_input
+        size_hint: None, 1
+        width: "100dp"
+        text: root.text_input_str
+        multiline: False
+        on_text_validate: root.on_text_validate(self)
+    Label:
+        text: "My school is: " + root.text_input_str
+        font_name: "fonts/Lcd.ttf"
+        font_size: "20"
+        color: 1, 0, 0
+
+
+<StackLayoutExample>:
+    orientation: "rl-tb"
+    Button:
+        text: "carvel"
+        size_hint: .2, .2
+    Button:
+        text: "carvel"
+        size_hint: .2, .2
+    Button:
+        text: "carvel"
+        size_hint: .2, .2
+    Button:
+        text: "carvel"
+        size_hint: .2, .2
+
+    Button:
+        text: "carvel"
+        size_hint: .2, .2
+    Button:
+        text: "carvel"
+        size_hint: .2, .2
+
+<GridLayoutExample@GridLayout>:
+    #cols: 1
+    rows: 2
+    BoxLayoutExample:
+    Button:
+        text: "2"
+    Button:
+        text: "3"
+        size_hint: None, 1
+        width: "60dp"
+<AnchorLayoutExample>:
+    anchor_x: "center"
+    anchor_y: "top"
+    BoxLayout:
+        size_hint: .2, .2
+        Button:
+            text: "carvel"
+
+        Label:
+            text: "overlap"
+
+
+
+<BoxLayoutExample>:
+    orientation: "vertical"
+    Label:
+        text: "carvel"
+        size_hint: 1, None
+        height: "60dp"
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: "10dp"
+        Button:
+            text: "B1"
+        Button:
+            text: "B2"
+        Button:
+            text: "B3"
+        Button:
+            text: "B4"
+
+
+
+<MainWidget>:
+    Button:
+        text: "Carvel"
